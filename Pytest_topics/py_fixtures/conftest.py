@@ -1,35 +1,36 @@
 import pytest
 
 
-@pytest.fixture(scope='module')
+@pytest.fixture(scope='session')
 def weekdays1():
     return ['mon', 'tue', 'wed']
 
 
-@pytest.fixture(scope='module')
+@pytest.fixture(scope='session')
 def weekdays2():
     return ['fri', 'sat', 'sun']
 
 
-@pytest.fixture(scope='module')
+@pytest.fixture(scope='session')
 def setup01(weekdays1):
-    print('\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA')
+    # print('\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA')
     wk1 = weekdays1.copy()
     wk1.append('thur')
     yield wk1
-    print('\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA')
-    print('\nFixture setup01 closing')
+    # print('\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA')
+    print('Fixture setup01 closing')
     # Если нужно, можно добавить логику очистки wk1, но не weekdays1
     # Например:
     # wk1.remove('thur')  # Убираем элемент, добавленный в тесте
-    print('setup01 final state:', wk1)
+    # print('setup01 final state:', wk1)
 
 
-@pytest.fixture(scope='module')
+@pytest.fixture(scope='session')
 def setup02(weekdays2):
     wk2 = weekdays2.copy()
     wk2.insert(0, 'thur')
     yield wk2
+    print('\nSetup02 exit')
 
 
 @pytest.fixture()

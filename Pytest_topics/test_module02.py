@@ -1,4 +1,4 @@
-class TestMyStuff:
+class TestMyStuffTC:
 
     def test_a1(self):
         assert 1 + 3 == 4

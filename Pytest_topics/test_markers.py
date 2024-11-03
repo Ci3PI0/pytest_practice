@@ -1,7 +1,7 @@
 import pytest
 
-# pytestmark = pytest.mark.sanity
-pytestmark = [pytest.mark.sanity, pytest.mark.str]
+pytestmark = pytest.mark.money
+# pytestmark = [pytest.mark.sanity, pytest.mark.str,pytest.mark.money]
 
 
 # @pytest.mark.sanity
@@ -12,7 +12,7 @@ def test_str01():
     assert s1 == 'I like pytest automation'
     assert s1 + str(num) == 'I like pytest automation2.25'
 
-
+# @pytest.mark.sanity
 def test_str02():
     letters = 'abcdefghijklmnopqrstuvwxyz'
     assert len(letters) == 26
